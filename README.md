@@ -1,7 +1,3 @@
-***
-
-## 📋 Código do README.md Final (Copie e Cole)
-
 ```markdown
 <div align="center">
   <img src="LINK_DA_IMAGEM_LOGO_GERADA.png" alt="Logo Triagem Inteligente" width="400">
