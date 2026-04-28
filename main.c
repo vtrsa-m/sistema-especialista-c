@@ -338,7 +338,7 @@ int main() {
             Escrever(arial, "VOLTAR", 465, 692, 18, WHITE);
         }
 
-        Escrever(arial, "Desenvolvido por: Vitor Amâncio, Pablo Felipe e Bruno Brito", 20, 725, 14, GRAY);
+        Escrever(arial, "Desenvolvido por: Vitor Amancio, Pablo Felipe e Bruno Brito", 20, 725, 14, GRAY);
 
         EndDrawing();
     }
