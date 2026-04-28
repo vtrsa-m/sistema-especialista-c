@@ -271,21 +271,27 @@ int main() {
 
         if (!modoEstrutura) {
             // --- TELA 1: INTERFACE DE TRIAGEM ---
+
+            // 1. Cabeçalho
             DrawRectangle(0, 0, 1000, 80, (Color){ 30, 58, 138, 255 }); 
             Escrever(arial, "SISTEMA ESPECIALISTA - TRIAGEM DINAMICA", 30, 25, 26, WHITE);
             
+            // 2. Botão para alternar para a Tela 2
             bool hEst = CheckCollisionPointRec(mouse, btnEstrutura);
             DrawRectangleRec(btnEstrutura, hEst ? (Color){ 51, 65, 85, 255 } : (Color){ 15, 23, 42, 255 });
             Escrever(arial, "VER ESTRUTURA", 790, 32, 16, WHITE);
 
+            // 3. Fundo branco do painel principal
             DrawRectangle(50, 120, 900, 320, WHITE);
             DrawRectangleLinesEx((Rectangle){ 50, 120, 900, 320 }, 1, LIGHTGRAY);
 
             if (atual != NULL) {
                 if (atual->sintoma != -1) {
+                    // 4. Exibição da pergunta atual
                     Escrever(arial, "O PACIENTE APRESENTA O SEGUINTE SINTOMA:", 80, 150, 16, (Color){ 100, 116, 139, 255 });
                     Escrever(arial, TextFormat("%s", nomesSintomas[atual->sintoma]), 80, 250, 32, (Color){ 15, 23, 42, 255 });
 
+                    // 5. Botões de resposta (Sim e Não)
                     bool hSim = CheckCollisionPointRec(mouse, btnSim);
                     DrawRectangleRec(btnSim, hSim ? (Color){ 20, 50, 150, 255 } : (Color){ 30, 64, 175, 255 });
                     Escrever(arial, "SIM", 285, 505, 22, WHITE);
@@ -294,19 +300,21 @@ int main() {
                     DrawRectangleRec(btnNao, hNao ? (Color){ 200, 210, 230, 255 } : (Color){ 226, 232, 240, 255 });
                     Escrever(arial, "NAO", 635, 505, 22, (Color){ 71, 85, 105, 255 });
                 } else {
+                    // 6. Exibição do resultado final
                     DrawRectangle(50, 120, 900, 8, (Color){ 30, 64, 175, 255 });
                     Escrever(arial, "IMPRESSAO DIAGNOSTICA ENCONTRADA:", 80, 150, 16, (Color){ 100, 116, 139, 255 });
                     Escrever(arial, atual->diagnostico, 80, 210, 40, (Color){ 30, 64, 175, 255 });
                     
                     Escrever(arial, "Resultado gerado com base no cruzamento estatistico da base de dados.", 80, 320, 18, GRAY);
 
+                    // 7. Botão para reiniciar o fluxo de triagem
                     bool hRes = CheckCollisionPointRec(mouse, btnReset);
                     DrawRectangleRec(btnReset, hRes ? BLACK : DARKGRAY);
                     Escrever(arial, "NOVA TRIAGEM", 435, 592, 16, WHITE);
                 }
             }
         } else {
-            // --- TELA 2: VISUALIZAÇÃO DA ÁRVORE (COM SCROLL) ---
+            // --- TELA 2: VISUALIZAÇÃO DA ÁRVORE ---
             
             // 1. Atualiza a rolagem com o Mouse
             scrollArvore += GetMouseWheelMove() * 35.0f;
