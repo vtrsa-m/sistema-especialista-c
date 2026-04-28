@@ -16,7 +16,7 @@ Este projeto é um software interativo desenvolvido como requisito acadêmico pa
 
 ## 📌 Sobre o Projeto
 
-O programa atua como um "Akinator Médico". Através de uma série de perguntas de "Sim" ou "Não", ele analisa os sintomas relatados pelo usuário para chegar a uma conclusão diagnóstica entre as doenças cadastradas na sua base de conhecimento.
+Este software não utiliza um questionário fixo (escrito à mão). Em vez disso, ele possui um **Motor de Inferência Dinâmico**. A partir de uma Base de Conhecimento (um "banco de dados" de doenças e seus respectivos sintomas), o algoritmo calcula matematicamente qual é a melhor pergunta a ser feita a cada etapa, construindo uma **Árvore de Decisão** em tempo real.
 
 ## 🧠 Como Funciona o Algoritmo?
 
