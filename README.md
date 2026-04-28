@@ -1,113 +1,68 @@
-```markdown
 <div align="center">
-  <img src="LINK_DA_IMAGEM_LOGO_GERADA.png" alt="Logo Triagem Inteligente" width="400">
-
-  <br><br>
-
+  <br>
   <img src="https://img.shields.io/badge/Linguagem-C-1565C0?style=for-the-badge&logo=c">
   <img src="https://img.shields.io/badge/Estrutura-Árvores_Dinâmicas-E53935?style=for-the-badge">
   <img src="https://img.shields.io/badge/Interface-Raylib-4E69FF?style=for-the-badge">
   <br>
-  <img src="https://img.shields.io/badge/Curso-Engenharia_da_Computação-FFB300?style=for-the-badge">
+  <img src="https://img.shields.io/badge/Curso-Engenharia_de_Computação-FFB300?style=for-the-badge">
   <img src="https://img.shields.io/badge/Instituição-IFMS-FFFFFF?style=for-the-badge&logoColor=black">
 </div>
 
-<br><br>
-
-# 📌 Sobre o Projeto
-
-O **Triagem Inteligente: Sistema Especialista Hospitalar** é um software interativo desenvolvido como parte dos requisitos acadêmicos do curso de **Engenharia da Computação** do **IFMS**. 
-
-O sistema simula uma triagem hospitalar dinâmica, agindo como um oráculo de diagnóstico médico. O programa guia o usuário através de perguntas de "Sim" ou "Não" sobre sintomas específicos para deduzir qual é a doença mais provável do paciente.
-
 <br>
 
-# 🚀 Tecnologias e Conceitos Utilizados
+# 🏥 Triagem Inteligente: Sistema Especialista Hospitalar
 
-* **Linguagem C:** Padrão ouro para desenvolvimento de sistemas especialistas eficientes.
-* **Árvores Binárias de Decisão:** Estrutura de dados fundamental onde cada nó é uma pergunta e cada folha é um diagnóstico final.
-* **[Raylib](https://www.raylib.com/):** Biblioteca gráfica leve e poderosa utilizada para renderizar a interface gráfica e gerenciar a interação do usuário.
+Este projeto é um software interativo desenvolvido como requisito acadêmico para o curso de **Engenharia da Computação** do **IFMS**. O sistema utiliza lógica de inteligência artificial para realizar triagens médicas preliminares através de uma interface gráfica amigável.
 
-<br>
+## 📌 Sobre o Projeto
 
-# 🧠 O Motor de Inferência (O Cérebro)
+O programa atua como um "Akinator Médico". Através de uma série de perguntas de "Sim" ou "Não", ele analisa os sintomas relatados pelo usuário para chegar a uma conclusão diagnóstica entre as doenças cadastradas na sua base de conhecimento.
 
-O grande diferencial deste projeto é que ele não utiliza um questionário fixo. Ele constrói a árvore de decisão **dinamicamente** ao iniciar.
+## 🧠 Como Funciona o Algoritmo?
 
-O algoritmo "guloso" analisa todas as doenças cadastradas e seus sintomas. Ele calcula, matematicamente, qual pergunta (sintoma) divide o monte de doenças restantes o mais próximo possível da metade (50% SIM e 50% NÃO). Essa é a pergunta ideal, pois elimina metade das doenças erradas com uma única resposta, garantindo o diagnóstico no menor número de cliques possível.
+O diferencial deste software é a construção **dinâmica** da árvore de decisão:
+1. **Análise de Dados:** O sistema lê todas as doenças e sintomas disponíveis.
+2. **Cálculo de Eficiência:** Para cada pergunta, o algoritmo calcula quantas doenças seriam eliminadas.
+3. **Divisão Ótima:** Ele escolhe sempre a pergunta que divide a lista de doenças o mais próximo possível de 50%, garantindo que o diagnóstico seja encontrado no menor número de passos possível.
 
-<br>
+## 🚀 Tecnologias Utilizadas
 
-# ⚙️ Dependências (Como Instalar)
+* **Linguagem C:** Para o processamento lógico e gerenciamento de memória.
+* **Biblioteca Raylib:** Para a criação da interface visual e detecção de interações.
+* **Árvores Binárias:** Estrutura de dados principal para a navegação lógica.
 
-Para compilar este projeto, você precisa ter a biblioteca **Raylib** instalada e configurada no seu ambiente de desenvolvimento.
+## ⚙️ Instalação de Dependências (Linux Mint/Ubuntu)
 
-## 🐧 No Linux (Mint / Ubuntu / Debian)
-Você pode instalar a Raylib e as ferramentas de compilação diretamente pelo terminal:
+Antes de compilar, você deve instalar as bibliotecas necessárias para o funcionamento da Raylib:
 
 ```bash
-# 1. Instalar compilador e ferramentas base
 sudo apt update
-sudo apt install build-essential git cmake
-
-# 2. Instalar dependências gráficas e de áudio da Raylib
-sudo apt install libasound2-dev libx11-dev libxrandr-dev libxi-dev xorg-dev libgl1-mesa-dev libglu1-mesa-dev
+sudo apt install build-essential git cmake libasound2-dev libx11-dev libxrandr-dev libxi-dev xorg-dev libgl1-mesa-dev libglu1-mesa-dev
 ```
 
-## 🪟 No Windows (Usando VS Code + w64devkit)
-No Windows, o processo geralmente envolve configurar o compilador GCC e as pastas da Raylib manualmente. Siga os tutoriais oficiais ou use o instalador da Raylib se necessário. **Certifique-se de ter o GCC (`gcc`) e o linker configurados no seu PATH.**
+### 🪟 No Windows (w64devkit)
+Para o Windows, utilizamos a versão da Raylib que já vem com o compilador embutido:
+1. Acesse a página de [Releases da Raylib no GitHub](https://github.com/raysan5/raylib/releases).
+2. Baixe a versão para Windows com MinGW embutido (ex: `raylib-X.X_win64_mingw-w64.zip` ou o instalador `.exe`).
+3. Extraia ou instale os arquivos **exatamente** na pasta `C:\raylib\`.
+4. Isso garantirá que o compilador e as dependências estejam no local correto.
 
-<br>
+## 🛠️ Como Compilar e Executar
 
-# 🛠️ Como Compilar e Executar
+O projeto foi unificado para funcionar com um único arquivo fonte. Certifique-se de que o arquivo `arial.ttf` está na mesma pasta que o código.
 
-Este repositório foi unificado para rodar com **UM ÚNICO CÓDIGO FONTE** (`main.c`), independentemente do sistema operacional. O arquivo de fonte (`arial.ttf`) deve estar na mesma pasta do código.
-
-## Passo 1: Preparação
-Certifique-se de que sua pasta do projeto contém:
-* `main.c`
-* `arial.ttf`
-* `README.md`
-
-## Passo 2: Compilação
-
-Abra o terminal na pasta do projeto e rode o comando específico para o seu sistema:
-
-#### 🐧 Comando para LINUX:
+### 🐧 No Linux:
 ```bash
 gcc main.c -o sistema_triagem -lraylib -lGL -lm -lpthread -ldl -lrt -lX11
+./sistema_triagem
 ```
 
-#### 🪟 Comando para WINDOWS (Usando w64devkit):
-*(Ajuste os caminhos se sua instalação da Raylib for diferente)*
+### 🪟 No Windows (w64devkit):
 ```bash
 C:\raylib\w64devkit\bin\gcc.exe main.c -o sistema_triagem.exe -B C:\raylib\w64devkit\bin -I C:\raylib\raylib\src -L C:\raylib\raylib\src -lraylib -lopengl32 -lgdi32 -lwinmm -mwindows
 ```
 
-## Passo 3: Execução
-
-#### 🐧 Executar no LINUX:
-```bash
-./sistema_triagem
-```
-
-#### 🪟 Executar no WINDOWS:
-Basta dar um duplo clique no arquivo `sistema_triagem.exe` gerado na pasta.
-
-<br>
-
-# 👨‍💻 Autores
-* **Vitor Silva Amâncio** - Engenharia da Computação
-* **Pablo Felipe dos Santos** - Engenharia da Computação
-* **Bruno Brito** - Engenharia da Computação
-```
-
-***
-
-### 💡 Como colocar a logo gerada no README:
-
-1. Pegue a imagem da logo que gerei (ela está abaixo).
-2. Arraste essa imagem para dentro do corpo do seu repositório lá no GitHub (na página onde você edita o README direto pelo navegador). O GitHub vai gerar um link automaticamente (ex: `https://github.com/usuario/projeto/assets/...`).
-3. Pegue esse link gerado e cole na linha 3 do código acima, substituindo `LINK_DA_IMAGEM_LOGO_GERADA.png`.
-
-Sua apresentação está pronta e irretocável! Boa sorte com o projeto no IFMS!
+## 👨‍💻 Autores
+* **Vitor Amâncio** - Engenharia de Computação
+* **Pablo Felipe** - Engenharia de Computação
+* **Bruno Brito** - Engenharia de Computação
